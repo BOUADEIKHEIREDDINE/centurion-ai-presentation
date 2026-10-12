@@ -1,0 +1,218 @@
+.arch {
+  background:
+    radial-gradient(ellipse 70% 40% at 50% 0%, rgba(0, 23, 90, 0.45), transparent 70%),
+    var(--ink-950);
+}
+
+.arch__pipeline {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 28px;
+}
+.arch__item {
+  position: relative;
+  display: flex;
+}
+
+.arch__node {
+  flex: 1;
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  min-height: 150px;
+  padding: 18px 16px;
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--text);
+  transition:
+    border-color 0.3s,
+    background 0.3s,
+    transform 0.4s var(--ease-out);
+}
+.arch__node:hover {
+  border-color: var(--line-strong);
+  transform: translateY(-3px);
+}
+.arch__node.is-active {
+  background: #fff;
+  border-color: #fff;
+  color: var(--ink-950);
+}
+.arch__num {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.arch__node.is-active .arch__num {
+  color: var(--blue);
+}
+.arch__title {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+.arch__tagline {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.35;
+}
+.arch__node.is-active .arch__tagline {
+  color: #4a5160;
+}
+
+/* Liaison animée entre deux composants */
+.arch__link {
+  position: absolute;
+  top: 50%;
+  right: -28px;
+  width: 28px;
+  height: 1px;
+  background: var(--line-strong);
+  overflow: hidden;
+}
+.arch__link::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -3px;
+  border: 3.5px solid transparent;
+  border-left: 5px solid var(--line-strong);
+  border-right: 0;
+}
+.arch__packet {
+  position: absolute;
+  top: 0;
+  left: -8px;
+  width: 8px;
+  height: 1px;
+  background: var(--accent);
+  animation: arch-packet 2.1s linear infinite;
+}
+@keyframes arch-packet {
+  to {
+    left: 100%;
+  }
+}
+
+.arch__detail {
+  margin-top: 32px;
+  border-top: 1px solid var(--line-strong);
+}
+.arch__detail-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 64px);
+  padding-top: 32px;
+  min-height: 200px;
+}
+.arch__detail-kicker {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.arch__detail h3 {
+  font-size: var(--step-3);
+  margin-bottom: 14px;
+}
+.arch__role {
+  font-size: var(--step-1);
+  line-height: 1.55;
+}
+.arch__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.arch__chips li {
+  padding: 6px 12px;
+  border: 1px solid var(--line-strong);
+  font-size: 0.85rem;
+  font-family: ui-monospace, 'SF Mono', 'Cascadia Code', Consolas, monospace;
+  font-size: 0.8rem;
+}
+.arch__guards {
+  display: grid;
+  gap: 8px;
+}
+.arch__guards li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.arch__guards svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+  color: var(--st-ok);
+}
+
+.arch__note {
+  margin-top: 48px;
+  max-width: 72ch;
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+
+@media (max-width: 1080px) {
+  .arch__pipeline {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .arch__item:nth-child(3n) .arch__link {
+    display: none;
+  }
+  .arch__detail-inner {
+    grid-template-columns: 1fr 1fr;
+  }
+  .arch__detail-inner > :first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .arch__pipeline {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .arch__node {
+    min-height: 0;
+    grid-template-columns: 36px 1fr;
+    column-gap: 12px;
+  }
+  .arch__num {
+    grid-row: span 2;
+    margin: 2px 0 0;
+  }
+  .arch__item:nth-child(3n) .arch__link {
+    display: block;
+  }
+  .arch__link {
+    top: auto;
+    bottom: -20px;
+    right: auto;
+    left: 34px;
+    width: 1px;
+    height: 20px;
+  }
+  .arch__link::after {
+    display: none;
+  }
+  .arch__packet {
+    left: 0;
+    top: -8px;
+    width: 1px;
+    height: 8px;
+    animation-name: arch-packet-v;
+  }
+  @keyframes arch-packet-v {
+    to {
+      top: 100%;
+    }
+  }
+  .arch__detail-inner {
+    grid-template-columns: 1fr;
+  }
+}

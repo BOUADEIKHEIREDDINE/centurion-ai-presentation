@@ -1,0 +1,80 @@
+.ccard {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 361 / 229;
+  border-radius: 4.4% / 6.9%;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  background: #0b0c0f;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    0 30px 60px -20px rgba(0, 0, 0, 0.9),
+    0 60px 120px -40px rgba(0, 0, 0, 0.8);
+  will-change: transform;
+}
+
+.ccard__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  /* rogne les angles blancs du JPEG */
+  transform: scale(1.012);
+}
+
+/* Reflet unique, discret, lors de l'apparition */
+.ccard__sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 45%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.06) 55%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  animation: ccard-sheen 1.7s 0.7s var(--ease-out) 1 both;
+  mix-blend-mode: screen;
+}
+@keyframes ccard-sheen {
+  to {
+    transform: translateX(120%);
+  }
+}
+
+.ccard__edge {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+/* Variante CSS de secours, sans aucun élément de marque */
+.ccard__fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 9% 8%;
+  background:
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.015) 0 1px, transparent 1px 3px),
+    linear-gradient(135deg, #2a2c31 0%, #0c0d10 45%, #1d1f24 100%);
+}
+.ccard__chip {
+  width: 15%;
+  aspect-ratio: 1.3;
+  margin-top: 22%;
+  border-radius: 12%;
+  background: linear-gradient(135deg, #d9cfb4, #8d826a 60%, #c4b99c);
+}
+.ccard__fallback-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}

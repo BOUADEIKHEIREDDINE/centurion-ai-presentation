@@ -1,0 +1,236 @@
+.flow {
+  overflow: hidden;
+}
+
+.flow__rail-wrap {
+  position: relative;
+  --node: 44px;
+}
+
+/* Rail horizontal passant par le centre des nœuds */
+.flow__rail {
+  position: absolute;
+  top: calc(var(--node) / 2);
+  left: calc(100% / 12);
+  right: calc(100% / 12);
+  height: 1px;
+  background: var(--line-strong);
+}
+.flow__rail-fill {
+  position: absolute;
+  inset: -1px 0;
+  background: #fff;
+  transform-origin: 0 50%;
+  display: block;
+}
+.flow__pulse {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  margin-top: -1.5px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: flow-pulse 2.4s linear infinite;
+}
+@keyframes flow-pulse {
+  from {
+    left: -60px;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+.flow__steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.flow__step {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 8px;
+  padding: 0 6px 18px;
+  text-align: center;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  transition:
+    color 0.3s,
+    border-color 0.3s;
+}
+.flow__node {
+  display: grid;
+  place-items: center;
+  width: var(--node);
+  height: var(--node);
+  margin-bottom: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.9rem;
+  transition:
+    background 0.35s,
+    color 0.35s,
+    border-color 0.35s,
+    transform 0.35s var(--ease-out);
+}
+.flow__step.is-done .flow__node {
+  border-color: #fff;
+}
+.flow__step.is-active .flow__node {
+  background: #fff;
+  border-color: #fff;
+  color: var(--navy);
+  transform: scale(1.12);
+  box-shadow: 0 0 0 6px color-mix(in srgb, #fff 12%, transparent);
+}
+.flow__step-title {
+  font-size: 0.98rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.25;
+}
+.flow__step-short {
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+.flow__step:hover .flow__step-title,
+.flow__step.is-active .flow__step-title {
+  color: #fff;
+}
+.flow__step.is-active {
+  border-bottom-color: #fff;
+  color: var(--text);
+}
+
+.flow__panel {
+  margin-top: 40px;
+  padding: clamp(24px, 4vw, 48px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+.flow__panel-inner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: start;
+  min-height: 190px;
+}
+.flow__big {
+  font-size: clamp(4rem, 3rem + 4vw, 7rem);
+  line-height: 0.85;
+  color: var(--accent);
+}
+.flow__panel-main {
+  display: grid;
+  gap: 14px;
+}
+.flow__panel-main h3 {
+  font-size: var(--step-3);
+}
+.flow__panel-main p {
+  color: var(--text);
+  font-size: var(--step-1);
+  line-height: 1.55;
+}
+.flow__io {
+  margin: 0;
+  display: grid;
+  gap: 16px;
+}
+.flow__io div {
+  padding-left: 14px;
+  border-left: 1px solid var(--line-strong);
+}
+.flow__io dt {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+.flow__io dd {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+.flow__io-guard {
+  border-left-color: var(--st-ok) !important;
+}
+.flow__io-guard dt {
+  color: var(--st-ok);
+}
+
+.flow__controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.flow__count {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.flow__buttons {
+  display: flex;
+  gap: 8px;
+}
+.flow__buttons .btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+@media (max-width: 960px) {
+  .flow__rail-wrap {
+    --node: 40px;
+  }
+  .flow__rail {
+    top: 20px;
+    bottom: 20px;
+    left: calc(var(--node) / 2);
+    right: auto;
+    width: 1px;
+    height: auto;
+  }
+  .flow__rail-fill {
+    inset: 0 -1px;
+    transform-origin: 50% 0;
+  }
+  .flow__pulse {
+    display: none;
+  }
+  .flow__steps {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .flow__step {
+    grid-template-columns: var(--node) 1fr;
+    grid-template-rows: auto auto;
+    justify-items: start;
+    text-align: left;
+    column-gap: 16px;
+    row-gap: 2px;
+    padding: 6px 0;
+    border-bottom: 0;
+  }
+  .flow__node {
+    grid-row: span 2;
+    margin: 0;
+  }
+  .flow__panel-inner {
+    grid-template-columns: 1fr;
+  }
+  .flow__big {
+    font-size: 3.4rem;
+  }
+}

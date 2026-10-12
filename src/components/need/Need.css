@@ -1,0 +1,116 @@
+.need__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  grid-template-areas:
+    'kicker kicker'
+    'title lead';
+  gap: 28px clamp(32px, 6vw, 96px);
+  align-items: end;
+  margin-bottom: clamp(64px, 9vw, 120px);
+}
+.need__head > :first-child {
+  grid-area: kicker;
+}
+.need__title {
+  grid-area: title;
+  font-size: var(--step-5);
+  font-weight: 350;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.need__lead {
+  grid-area: lead;
+  font-size: var(--step-1);
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.need__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2.4fr);
+  gap: clamp(32px, 6vw, 96px);
+  padding-top: 40px;
+  border-top: 1px solid var(--line-strong);
+}
+
+.need__assumption {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 14px;
+}
+.need__assumption h3 {
+  font-size: var(--step-2);
+  line-height: 1.15;
+}
+.need__assumption p {
+  font-size: var(--step--1);
+  color: var(--muted);
+}
+
+.need__pains {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 3vw, 48px);
+  counter-reset: pain;
+}
+.need__pain {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+.need__index {
+  font-size: 3.2rem;
+  line-height: 1;
+  color: var(--blue);
+}
+.need__pain h3 {
+  font-size: var(--step-1);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.need__pain p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.need__charter {
+  margin-top: clamp(72px, 10vw, 128px);
+  padding: clamp(28px, 4vw, 48px);
+  background: var(--ink-950);
+  color: #eef0f3;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+  gap: 32px;
+  align-items: start;
+}
+.need__charter-title {
+  color: #fff;
+  font-size: var(--step-1);
+  font-weight: 500;
+}
+.need__charter ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.need__charter li {
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  font-size: 0.88rem;
+}
+
+@media (max-width: 900px) {
+  .need__head {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'kicker' 'title' 'lead';
+  }
+  .need__body,
+  .need__charter {
+    grid-template-columns: 1fr;
+  }
+  .need__pains {
+    grid-template-columns: 1fr;
+  }
+}

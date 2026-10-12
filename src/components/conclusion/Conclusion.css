@@ -1,0 +1,119 @@
+.conclusion {
+  padding-bottom: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 100%, rgba(0, 23, 90, 0.5), transparent 70%),
+    var(--ink-950);
+  border-top: 1px solid var(--line);
+}
+
+.conclusion__title {
+  margin-top: 28px;
+  font-size: var(--step-5);
+  font-weight: 350;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  max-width: 14ch;
+}
+
+.conclusion__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 96px);
+  margin-top: clamp(56px, 8vw, 96px);
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+.conclusion__text {
+  display: grid;
+  gap: 20px;
+  font-size: var(--step-1);
+  line-height: 1.6;
+}
+.conclusion__open {
+  color: #fff;
+}
+
+.conclusion__contact {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  padding: clamp(24px, 3vw, 36px);
+  border: 1px solid var(--line-strong);
+}
+.conclusion__contact h3 {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+.conclusion__name {
+  font-size: var(--step-2);
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+.conclusion__headline {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.conclusion__links {
+  margin-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.conclusion__links a {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+}
+.conclusion__links a:hover .conclusion__link-value {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.conclusion__link-label {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.conclusion__link-value {
+  color: #fff;
+  overflow-wrap: anywhere;
+  text-align: right;
+}
+.conclusion__empty {
+  margin-top: 12px;
+  font-size: 0.85rem;
+  color: var(--st-warn);
+}
+.conclusion__cta {
+  margin-top: 20px;
+  justify-self: start;
+}
+
+.conclusion__end {
+  display: flex;
+  justify-content: center;
+  margin-block: clamp(72px, 10vw, 128px);
+}
+
+.site-footer {
+  padding-block: 32px;
+  border-top: 1px solid var(--line);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.site-footer .container {
+  display: grid;
+  gap: 8px;
+}
+.site-footer p {
+  max-width: 110ch;
+}
+
+@media (max-width: 900px) {
+  .conclusion__grid {
+    grid-template-columns: 1fr;
+  }
+}
