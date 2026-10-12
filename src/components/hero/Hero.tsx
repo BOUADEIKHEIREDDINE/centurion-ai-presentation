@@ -128,7 +128,7 @@ export function Hero() {
             {hero.eyebrow}
           </p>
           <h1 id="hero-title" className="hero__title" data-reveal tabIndex={-1}>
-            {hero.title}
+            {hero.title} <em className="serif-italic">{hero.titleEmphasis}</em>
           </h1>
           <p className="hero__context" data-reveal>
             {hero.context}

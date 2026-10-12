@@ -32,8 +32,10 @@ export const disclaimers = {
 
 export const hero = {
   eyebrow: "Proposition de projet · Alternance de deux ans",
-  title: 'Une plateforme d’IA pour identifier et analyser les prospects à fort potentiel',
-  context: 'Projet envisagé pour les équipes American Express Centurion',
+  title: 'Une plateforme d’IA pour la prospection de la',
+  titleEmphasis: 'carte Centurion',
+  context:
+    'Aider les équipes American Express à identifier, documenter et analyser les clients potentiels de la carte Centurion, la carte sur invitation de la marque.',
   kpiLabel: 'de temps moyen par prospect',
   kpiNote: 'Objectif hypothétique, à valider',
 };
@@ -42,7 +44,7 @@ export const need = {
   kicker: 'A · Le besoin métier',
   title: 'Transformer la recherche de prospects en un processus plus structuré.',
   lead:
-    "L'objectif : assister les équipes dans la recherche, la documentation et l'analyse de prospects potentiels pour la carte Centurion — sans jamais remplacer leur jugement.",
+    "L'objectif : assister les équipes dans la recherche, la documentation et l'analyse de prospects potentiels pour la carte Centurion, sans jamais remplacer leur jugement.",
   assumptionTitle: 'Le processus manuel, tel que je l’imagine',
   assumptionNote:
     "Hypothèse à confirmer avec American Express : ce site décrit une proposition, pas les pratiques internes de l'entreprise.",
@@ -60,6 +62,19 @@ export const need = {
       text: "Sans grille commune, deux analystes peuvent prioriser différemment le même profil. L'outil rend chaque critère explicite et discutable.",
     },
   ],
+  visual: {
+    beforeLabel: 'Sources dispersées',
+    afterLabel: 'Dossier structuré',
+    sources: ['Registres', 'Comptes publiés', 'Presse éco.', 'Site web', 'Notes'],
+    cardTitle: 'Fiche prospect',
+    rows: [
+      { label: 'Activité', status: 'ok', statusLabel: 'Vérifié' },
+      { label: 'Comptes publiés', status: 'ok', statusLabel: 'Vérifié' },
+      { label: 'Taille estimée', status: 'hypo', statusLabel: 'Estimé' },
+      { label: 'Actualité récente', status: 'risk', statusLabel: 'Manquant' },
+    ],
+    decision: 'Décision finale : humaine',
+  },
   principles: [
     'Sources publiques autorisées uniquement',
     'Faits, estimations et manques séparés',

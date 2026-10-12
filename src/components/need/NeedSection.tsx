@@ -1,6 +1,7 @@
 import { need } from '../../content/site';
 import { Reveal } from '../ui/Reveal';
 import { SplitHeading } from '../ui/SplitHeading';
+import { NeedVisual } from './NeedVisual';
 import './Need.css';
 
 export function NeedSection() {
@@ -12,6 +13,7 @@ export function NeedSection() {
             <p className="kicker">{need.kicker}</p>
           </Reveal>
           <SplitHeading id="need-title" className="need__title" text={need.title} emphasis={['structuré.']} />
+          <NeedVisual />
           <Reveal delay={0.15} className="need__lead">
             <p>{need.lead}</p>
           </Reveal>
