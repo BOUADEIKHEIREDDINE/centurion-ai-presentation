@@ -8,6 +8,7 @@ import { NeedSection } from './components/need/NeedSection';
 import { ProductSection } from './components/product/ProductSection';
 import { SavingsSection } from './components/savings/SavingsSection';
 import { ErrorBoundary } from './components/ui/ErrorBoundary';
+import { HumanMadeBadge } from './components/ui/HumanMadeBadge';
 import { ValidationSection } from './components/validation/ValidationSection';
 
 const sections = [
@@ -35,6 +36,7 @@ export function App() {
           </ErrorBoundary>
         ))}
       </main>
+      <HumanMadeBadge />
     </MotionConfig>
   );
 }

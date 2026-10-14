@@ -28,6 +28,7 @@ export const disclaimers = {
   fictional: 'Démonstration frontend · données entièrement fictives · aucune connexion à des données réelles',
   independent:
     "Proposition de projet indépendante réalisée dans le cadre d'une candidature en alternance. Ce site n'est ni affilié, ni approuvé, ni publié par American Express. American Express et Centurion sont des marques de leurs propriétaires respectifs ; le visuel de carte est utilisé à titre illustratif.",
+  humanMade: "Ce site n'est pas généré par IA. Chaque mot a été pensé et écrit par moi.",
 };
 
 export const hero = {
